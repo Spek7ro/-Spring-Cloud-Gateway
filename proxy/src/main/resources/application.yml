@@ -1,0 +1,20 @@
+
+server:
+    port: 8000
+spring:
+    cloud:
+        gateway:
+            routes:
+                - id: jsonplaceholder
+                  uri: https://jsonplaceholder.typicode.com
+                  predicates:
+                    - Path=/todos/**
+                - id: httpbin
+                  uri: https://httpbin.org
+                  predicates:
+                    - Path=/get/**
+                - id: reqres
+                  uri: https://reqres.in
+                  predicates:
+                    - Path=/api/**
+
